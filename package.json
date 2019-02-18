@@ -1,0 +1,15 @@
+{
+  "name": "vuejs_intro",
+  "version": "1.0.0",
+  "description": "Vue.js Introductory Workshop",
+  "repository": "https://github.com/CartoDB/labs_vuejs_intro",
+  "author": "Jorge Sanz <jsanz@carto.com>",
+  "license": "BSD",
+  "private": true,
+  "scripts":{
+    "serve": "browser-sync start --server 'src' --files 'src'"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.3"
+  }
+}

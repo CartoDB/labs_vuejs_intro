@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href=//carto.com/favicon.ico>
+
+  <title>Vue.js Intro - Step 1 - CARTO Dashboard</title>
+
+  <!-- Airship CSS-->
+  <link rel="stylesheet" href="https://libs.cartocdn.com/airship-style/v1.0.3/airship.css">
+  <link rel="stylesheet" href="https://libs.cartocdn.com/airship-icons/v1.0.3/icons.css">
+
+  <!-- Mapbox CSS -->
+  <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css" rel="stylesheet" />
+  <link href="https://carto.com/developers/carto-vl/examples/maps/style.css" rel="stylesheet">
+
+  <!-- Application CSS-->
+  <link rel="stylesheet" href="../common/styles.css">
+</head>
+
+<body class="as-app-body">
+  <div id="app" class="as-app">
+
+    <!-- Toolbar -->
+    <header class="as-toolbar">
+      <div class="as-toolbar__item">
+        <a href="https://carto.com">
+          <img alt="CARTO Logo" src="../common/logo-circle.svg"/>
+        </a>
+      </div>
+      <div class="as-toolbar__item">
+        <h3 class="as-title">Vue.js Intro (1)</h3>
+      </div>
+      <div class="as-toolbar__item">
+        <a href="https://github.com/CartoDB/labs_vuejs_intro">
+          <img alt="Github repo" src="../common/GitHub-Mark-Light-32px.png"/>
+        </a>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <as-responsive-content>
+
+      <!-- Sidebar-->
+      <aside class="as-sidebar as-sidebar--left as-bg--ui-04" data-name="Widgets">
+        <div class="as-container as-container--border">
+          <section class="as-box">
+            <h3 class="as-title">A sidebar</h3>
+            <p class="as-body">
+              Some text
+            </p>
+          </section>
+        </div>
+      </aside>
+
+      <!-- Main map area-->
+      <main class="as-main">
+        <div class="as-map-area">
+          <div id="map"></div>
+        </div>
+      </main>
+
+    </as-responsive-content>
+  </div>
+
+  <!-- Libraries -->
+  <script src="https://libs.cartocdn.com/airship-components/v1.0.3/airship.js"></script>
+  <script src="https://libs.cartocdn.com/carto-vl/v1.1.1/carto-vl.js"></script>
+  <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js"></script>
+
+  <script src="../common/viz.js"></script>
+  <script src="./map.js"></script>
+  <script src="./main.js"></script>
+
+</body>
+
+</html>
