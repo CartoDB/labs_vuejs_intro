@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="shortcut icon" href=//carto.com/favicon.ico>
 
-  <title>Vue.js Intro - Step 2 - Vue instance</title>
+  <title>Vue.js Intro - Step 7 - Loops</title>
 
   <!-- Airship CSS-->
   <link rel="stylesheet" href="https://libs.cartocdn.com/airship-style/v1.0.3/airship.css">
@@ -63,17 +63,17 @@
                 <li><span class="as-font--bold">Zoom:</span> {{ formatNumber(zoomLevel) }}</li>
               </ul>
             </section>
-            <section class="as-box" v-bind:class="{ disabled: noCities }">
+            <section class="as-box" v-bind:class="{ 'is-disabled': noCities }">
               <h3 class="as-subheader">Number Places</h3>
               <p class="as-title" v-if="totalCount == null">loading...</p>
               <p class="as-title" v-else-if="totalCount>=0"> {{ formatNumber(totalCount) }}</p>
             </section>
-            <section class="as-box" v-bind:class="{ disabled: noCities }">
+            <section class="as-box" v-bind:class="{ 'is-disabled': noCities }">
               <h3 class="as-subheader">Population</h3>
               <p class="as-title" v-if="totalPop == null">loading...</p>
               <p class="as-title" v-else-if="totalPop>=0"> {{ formatNumber(totalPop) }}</p>
             </section>
-            <section class="as-box" v-bind:class="{ disabled: noCities }">
+            <section class="as-box" v-bind:class="{ 'is-disabled': noCities }">
               <h3 class="as-subheader">Population average</h3>
               <p class="as-title" v-if="avgPop == null">N/A</p>
               <p class="as-title" v-else-if="avgPop>=0"> {{ formatNumber(avgPop) }}</p>
@@ -85,8 +85,8 @@
       <!-- Right Sidebar-->
       <aside class="as-sidebar as-sidebar--right as-bg--ui-04" data-name="Top places">
           <div class="as-container as-container--border">
-              <section class="as-box" v-bind:class="{ disabled: noCities }">
-                <h3 class="as-subheader">Top places</h3>
+              <section class="as-box" v-bind:class="{ 'is-disabled': noCities }">
+                <h3 class="as-subheader">Top {{topCitiesCount}} places</h3>
                 <p class="as-title" v-if="noCities">loading...</p>
                 <table class="as-table as-table--stripped" v-else>
                   <tr><th>Name</th><th>Pop (max)</th></tr>
