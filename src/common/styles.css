@@ -1,3 +1,18 @@
 .as-sidebar .is-disabled{
     color: var(--as--color--type-02);
 }
+
+.as-badge {
+    cursor: pointer;
+}
+.as-badge:hover {
+    background-color: var(--as--color--badge-pink);
+}
+
+.as-sidebar hr {
+    border-style: solid;
+    border-width: 1px;
+    border-top: none;
+    color: var(--as--color--type-03);
+    margin: 0 8px;
+}

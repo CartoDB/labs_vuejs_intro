@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href=//carto.com/favicon.ico>
+
+  <title>Vue.js Intro - Step 9 - Minimal component</title>
+
+  <!-- Airship CSS-->
+  <link rel="stylesheet" href="https://libs.cartocdn.com/airship-style/v1.0.3/airship.css">
+  <link rel="stylesheet" href="https://libs.cartocdn.com/airship-icons/v1.0.3/icons.css">
+
+  <!-- Mapbox CSS -->
+  <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css" rel="stylesheet" />
+  <link href="https://carto.com/developers/carto-vl/examples/maps/style.css" rel="stylesheet">
+
+  <!-- Application CSS-->
+  <link rel="stylesheet" href="../common/styles.css">
+</head>
+
+<body class="as-app-body">
+  <div id="app" class="as-app">
+
+    <!-- Toolbar -->
+    <header class="as-toolbar">
+      <div class="as-toolbar__item">
+        <a href="https://carto.com">
+          <img alt="CARTO Logo" src="../common/logo-circle.svg"/>
+        </a>
+      </div>
+      <div class="as-toolbar__group">
+          <div class="as-toolbar__item">
+            <a v-bind:href="'../step_0' + (step - 1) + '/index.html'">prev</a>
+          </div>
+          <div class="as-toolbar__item">
+            <h3 class="as-title">Vue.js intro ({{ step }})</h3>
+          </div>
+          <div class="as-toolbar__item">
+              <a v-bind:href="'../step_0' + (step + 1) + '/index.html'">next</a>
+          </div>
+      </div>
+      <div class="as-toolbar__item">
+        <a href="https://github.com/CartoDB/labs_vuejs_intro">
+          <img alt="Github repo" src="../common/GitHub-Mark-Light-32px.png"/>
+        </a>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <as-responsive-content>
+
+      <!-- Left Sidebar-->
+      <aside class="as-sidebar as-sidebar--left as-bg--ui-04" data-name="Widgets">
+        <div class="as-container as-container--border">
+            <section class="as-box">
+              <h3 class="as-subheader">Map</h3>
+              <ul class="as-body">
+                <li><span class="as-font--bold">Lng:</span> {{ formatNumber(longitude) }}</li>
+                <li><span class="as-font--bold">Lat:</span> {{ formatNumber(latitude) }}</li>
+                <li><span class="as-font--bold">Zoom:</span> {{ formatNumber(zoomLevel) }}
+                  <span v-if="zooming == 0">&#x2794;</span>
+                  <span v-else-if="zooming == -1">&#x2798;</span>
+                  <span v-else>&#x279A;</span>                  
+                </li>
+              </ul>
+            </section>
+            <hr/>
+            <div v-bind:class="{ 'is-disabled': noCities }">
+              <section class="as-box">
+                <formula-widget
+                  title="Number Places"
+                  v-bind:formatter="formatNumber"
+                  v-bind:value="totalCount">
+                </formula-widget>
+                <formula-widget
+                  title="Population"
+                  caption="Sum of the populated places population"
+                  unit="inhabitants"
+                  v-bind:formatter="formatNumber"
+                  v-bind:value="totalPop">
+                </formula-widget>
+                <formula-widget
+                  title="Average population"
+                  unit="inhab./place"
+                  v-bind:formatter="formatNumber"
+                  v-bind:value="avgPop">
+                </formula-widget>
+              </section>
+            </div>
+        </div>
+      </aside>
+
+
+      <!-- Right Sidebar-->
+      <aside class="as-sidebar as-sidebar--right as-bg--ui-04" data-name="Top places">
+          <div class="as-container as-container--border">
+              <section class="as-box" v-bind:class="{ 'is-disabled': noCities }">
+                <h3 class="as-subheader">Top {{topCitiesCount}} places</h3>
+                <p> 
+                    <span v-on:click="topCitiesCount++" class="as-badge">More</span>
+                    <span v-on:click="topCitiesCount--" class="as-badge">Less</span>
+                </p>
+                <p class="as-title" v-if="noCities">loading...</p>
+                <table class="as-table as-table--stripped" v-else>
+                  <tr><th>Name</th><th>Pop (max)</th></tr>
+                  <tr v-for="place in topPlaces">
+                    <td>{{ place.name }}</td>
+                    <td style="text-align: right;">{{ formatNumber(place.pop_max) }}</td>
+                  </tr>
+                </table>
+
+              </section>
+          </div>
+        </aside>
+      <!-- Main map area-->
+      <main class="as-main">
+        <div class="as-map-area">
+          <div id="map"></div>
+        </div>
+      </main>
+
+    </as-responsive-content>
+  </div>
+
+  <!-- Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://libs.cartocdn.com/airship-components/v1.0.3/airship.js"></script>
+  <script src="https://libs.cartocdn.com/carto-vl/v1.1.1/carto-vl.js"></script>
+  <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js"></script>
+
+  <script src="../common/viz.js"></script>
+  <script src="./formula-widget.js"></script>
+  <script src="./vue.js"></script>
+  <script src="./map.js"></script>
+  <script src="./main.js"></script>
+
+</body>
+
+</html>

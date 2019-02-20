@@ -93,3 +93,40 @@ We only want to render a few cities on our dashboard so we create a new computed
 Finally, to expose those places on our dashboard we add a new sidebar to the right with an Airship styled table. To loop over the elements of `topPlaces` and generate a new row each, we use the `v-for` Vue construct.
 
 Move around the map and check how nicely the table is updated and you can even play on your Vue extension to change the value of `topCitiesCount` to change the number of cities displayed in your site. Cool, ugh?
+
+### [`src/step_08`](src/step_08)
+
+* Listen to mouse events
+* Watch a property change
+
+Firstly we add a couple of Airship badges to the tables widget and listen to the click event using `v-on:click` Vue construct. We can call a Vue method but on this case for simplicity we directly increase or decrease the value of `topCitiesCount` right away without having to touch any of our JavaScript files. Just look for the badges in the HTML code to find how easy this was.
+
+The second part of this lesson introduces an interesting Vue feature: watchers. If you check the Vue application definition you'll find a new section called `watch`. We add to this section functions with the same name of a static or computed variable to *listen* for their change. Anytime a variable changes its value this function is triggered so we can add intentional side effects to changes in our application state. In this case we are setting a `zooming` variable based in the value of the previous and current zoom levels so we can have `-1`, `0` or `+1` depending if we are zooming out, panning, or zooming in. Finally we render this variable just aside the zoom level.
+
+### [`src/step_09`](src/step_09)
+
+* Move the formula widgets to a dedicated component
+
+If you look at our previous HTML, the code for the formula widgets was a bit repetitive. Anytime we added a new formula we copy&pasted our HTML template and all the Vue logic. If we need to improve the styling or the behaviour we should be having quite a few places to touch and adjust. This is a perfect scenario for leveraging Vue components.
+
+Vue components are the framework feature to make pieces of composable markup and behaviour. Check on this lesson HTML how we changed our markup to replace our code by a new HTML tag called `formula-widget`, passing to this tag the minimum information needed to render the logic:
+
+* The title of our widget
+* A binding (so it's dynamic) to our application variable
+* An optional caption we will see below the title
+* An optional unit to place after the value
+* An optional formatter function to change the way the value is displayed.
+
+The `formatter` parameter needs to be bind because we can only pass strings to Vue components as static data.
+
+Now you can check the new `formula-widget.js` file and see a minimal Vue component definition. Any Vue component needs:
+
+* A name to use as HTML tag in your template
+* A template using the same HTML and Vue constructs as you've seen before
+* An object with the component properties (`props`), it's optional but recommended to specify your property type and if it's required.
+* Optionally you can also have `computed` and `methods` sections as a regular Vue application.
+
+This is not an accurate list and there's much more to discover, check the [documentation](https://vuejs.org/v2/guide/components.html).
+
+Check how the template resembles to our previous repeated code, even in this case we added a few more Airship classes to improve the widget rendering. Check also how the `formattedValue` computed variable dynamically checks for the `formatter` existence.
+
