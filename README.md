@@ -1,8 +1,14 @@
-# Vue.js Introductory Workshop
+![](./src/common/vue_banner.jpg)
+
+# Vue.js introductory workshop
 
 ## Objective
 
 This workshop aims to give you a first approach to [Vue.js](https://vuejs.org/) JavaScript framework.
+
+## Why?
+
+TBD
 
 ## Prerequisites
 
@@ -130,3 +136,6 @@ This is not an accurate list and there's much more to discover, check the [docum
 
 Check how the template resembles to our previous repeated code, even in this case we added a few more Airship classes to improve the widget rendering. Check also how the `formattedValue` computed variable dynamically checks for the `formatter` existence.
 
+## What's next?
+
+TBD
