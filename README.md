@@ -8,7 +8,7 @@
 
 ## Objective
 
-This workshop aims to give you a first approach to [Vue.js](https://vuejs.org/) JavaScript framework. The intention is to provide a quick overview of this framework capabilities, to be delivered in less than two hours and for a broad audience.
+This workshop aims to give you a first approach to [Vue.js](https://vuejs.org/) JavaScript framework. The intention is to provide a quick overview of this framework capabilities, to be delivered in less than two hours, and for a broad audience.
 
 ## Why?
 
@@ -17,6 +17,12 @@ At CARTO and more specifically at the Solutions team we are requested to deliver
 In the past, following CARTO product practice, we used [Backbone.js](https://backbonejs.org/) to have models, collections, and views but we never went too far on its usage, as we moved out from web development to work more on BUILDER demos. Lastly, with the revamped efforts on CARTO ENGINE, we are getting more requests to develop small demos again, so we looked again to the 2018/2019 JavaScript panorama for more effective alternatives.
 
 At the same time, CARTO Engineering team started new development projects and opted for [Vue.js](https://vuejs.org/)  as their new choice, so it looked natural for us to also go in the same direction. That does not mean that we discard any other framework, but [Vue.js](https://vuejs.org/)  unique adoption curve helps for our specific scenario.
+
+From the [Vue.js Guide](https://vuejs.org/v2/guide/):
+
+<blockquote>
+Vue (pronounced /vjuː/, like **view**) is a **progressive framework** for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects.
+</blockquote>
 
 ## Prerequisites
 
@@ -179,6 +185,8 @@ In case you need some ideas on what to do next:
 
 Going further, you may want to take a look at:
 
+
+* [Awesome vue.js](https://github.com/vuejs/awesome-vue#components--libraries) is huge compilation of resources, example projects, components, and libraries 
 * Using [Vue CLI](https://cli.vuejs.org/) to allow many features like linting, compression, using TypeScript, SASS, etc.
 * Using [Vue Router](https://router.vuejs.org/) to build a full Single Page Application that offers navigation between some different *pages*
 * Using [Vuex](https://vuex.vuejs.org/) to centralize the storage of your application state
