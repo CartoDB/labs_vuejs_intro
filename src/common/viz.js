@@ -14,8 +14,6 @@ const viz = new carto.Viz(
     @totalCount: viewportCount()
     @totalPop: viewportSum($pop_max)
     @features: viewportFeatures($name,$pop_max)
-    
-    filter: 1
     `
 );
 
